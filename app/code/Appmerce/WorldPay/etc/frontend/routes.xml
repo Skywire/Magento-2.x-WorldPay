@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Appmerce - Applications for Ecommerce
+ * http://www.appmerce.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="appmerce_worldpay" frontName="worldpay">
+            <module name="Appmerce_WorldPay" />
+        </route>
+    </router>
+</config>

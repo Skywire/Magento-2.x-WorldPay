@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Appmerce - Applications for Ecommerce
+ * http://www.appmerce.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <appmerce_worldpay>
+            	<model>Appmerce\WorldPay\Model\Worldpay</model>
+            	<title>WorldPay Business</title>
+                <active>0</active>
+                <order_status>pending</order_status>
+                <pending_status>pending_payment</pending_status>
+                <processing_status>processing</processing_status>
+                <md5_secret backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <callback_pw backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <remote_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <allowspecific>0</allowspecific>
+                <usecache>0</usecache>
+            </appmerce_worldpay>
+        </payment>
+    </default>
+</config>

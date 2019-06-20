@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Appmerce - Applications for Ecommerce
+ * http://www.appmerce.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="appmerce_worldpay" translate="label" type="text" sortOrder="77" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Appmerce - WorldPay Business</label>
+                <comment>
+                    <![CDATA[Extension by <a href="http://www.appmerce.com/" title="Applications for Ecommerce">Appmerce</a> | <a href="https://www.appmerce.com/pages/contact" title="Get support for this extension">Get Support</a>]]>
+                </comment>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="pending_status" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Pending Payment Status</label>
+                    <source_model>Appmerce\WorldPay\Model\Source\PendingPayment</source_model>
+                </field>
+                <field id="processing_status" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Processing Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+                <field id="instid" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Installation ID</label>
+                </field>
+             	<field id="accid" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant Number</label>
+                    <comment>
+                        <![CDATA[Optional field for merchant number or accId1.]]>
+                    </comment>
+                </field>
+             	<field id="signature" translate="label" type="select" sortOrder="86" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable MD5 Signature</label>
+                    <comment>
+                        <![CDATA[Make sure to enable this feature in your WorldPay admin as well.]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+             	<field id="md5_secret" translate="label" type="obscure" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>MD5 Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+             	<field id="callback_pw" translate="label" type="obscure" sortOrder="92" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Response Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+             	<field id="remote_instid" translate="label" type="text" sortOrder="94" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remote Admin Installation ID</label>
+                    <comment>
+                        <![CDATA[Optional. Only required for invoice and credit memo remote actions through Magento.]]>
+                    </comment>
+                </field>
+             	<field id="remote_key" translate="label" type="obscure" sortOrder="96" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remote Admin Authorisation Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <!--
+             	<field id="payment_action" translate="label" type="select" sortOrder="98" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Action</label>
+                    <source_model>Appmerce\WorldPay\Model\Source\PaymentAction</source_model>
+                </field>
+                -->
+                <field id="test_flag" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+             	<field id="test_result" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Result</label>
+                    <comment>
+                        <![CDATA[Choose a test result for the test mode.]]>
+                    </comment>
+                    <source_model>Appmerce\WorldPay\Model\Source\TestResult</source_model>
+                </field>
+                <field id="invoice_create" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Create Invoice</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--
+                <field id="invoice_email" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Send Invoice Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                -->
+                <field id="base_currency" translate="label,comment" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Use Base Currency</label>
+                    <comment>
+                        <![CDATA[Disable to use currency from user session.]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="min_order_total" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum Order Total</label>
+                </field>
+                <field id="max_order_total" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Maximum Order Total</label>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
